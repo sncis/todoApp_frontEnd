@@ -1,12 +1,23 @@
-import React, { Component } from 'react';
-import {View,Text} from 'react-native';
+import React, { Component } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import { onSignOut } from "../Auth";
 
 export default class SettingsScreen extends Component {
-render(){
-	return(
-		<View>
-			<Text>SettingsScreen</Text>
-		</View>
-	)
-}
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <View>
+        <Text>SettingsScreen</Text>
+        <TouchableOpacity
+          onPress={() =>
+            onSignOut().then(() => this.props.navigation.navigate("SignedOut"))
+          }
+        >
+          <Text>Sign out</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 }

@@ -25,19 +25,26 @@ export default class ToDoInput extends Component {
   }
 
   postTodo = () => {
-    // console.log(this.state);
+    console.log("haaaaaaaaa");
+    console.log(this.state.deadline);
+    // const data = {
+    //   title: this.state.title,
+    //   description: this.state.description,
+    //   estTime: float(this.state.estTime),
+    //   created_at: this.state.created_at,
+    //   deadline: this.state.deadline
+    // };
     const data = {
-      title: this.state.title,
-      description: this.state.description,
-      estTime: this.state.estTime,
-      created_at: this.state.created_at,
-      deadline: this.state.deadline
+      title: "titlfe from frontend",
+      description: "description from frontend",
+      estTime: 1.4,
+      created_at: new Date(),
+      deadline: new Date()
     };
     axios
-      .post("http://127.0.0.1:5000/todos/", data)
+      .post("http://127.0.0.1:5000/todos", data)
       .then(response => console.log(response))
       .catch(error => console.log(error));
-
     return this.props.goBack();
   };
 
@@ -65,8 +72,17 @@ export default class ToDoInput extends Component {
             multiline={true}
             onChangeText={text => this.setState({ description: text })}
           />
+          <Input
+            placeholder="estTime"
+            inputContainerStyle={{
+              ...styles.inputContainer,
+              borderBottomWidth: 0
+            }}
+            inputStyle={styles.inputText}
+            enablesReturnKeyAutomatically={true}
+          />
 
-          <DatePicker
+          {/* <DatePicker
             style={styles.datePicker}
             mode="time"
             // date={this.state.estTime}
@@ -76,7 +92,7 @@ export default class ToDoInput extends Component {
             cancelBtnText="Cancle"
             onDateChange={time => this.setState({ estTime: time })}
             showIcon={false}
-          />
+          /> */}
           <DatePicker
             mode="date"
             placeholder="select finishing date"

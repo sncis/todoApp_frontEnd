@@ -7,7 +7,7 @@ export default class LoginScreen extends Component {
     return (
       <View>
         <LoginForm
-          navigateToTodos={() => this.props.navigation.navigate("Dashboard")}
+          navigateToTodos={() => this.props.navigation.navigate("SignedIn")}
         />
       </View>
     );

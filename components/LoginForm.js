@@ -29,43 +29,34 @@ export default class LoginForm extends Component {
   render() {
     return (
       <View>
-        <LinearGradient
-          colors={["rgba(255,95,109, 0.7)", "rgba(255,195,113,0.7)"]}
-          style={styles.gradient}
-        >
-          <View style={styles.inputContainer}>
-            <Input
-              placeholder="username"
-              inputContainerStyle={{ borderBottomWidth: 0 }}
-              containerStyle={styles.input}
-              inputStyle={styles.inputText}
-              onChangeText={text => this.setState({ username: text })}
-            />
-            <Input
-              placeholder="password"
-              inputContainerStyle={{ borderBottomWidth: 0 }}
-              containerStyle={styles.input}
-              inputStyle={styles.inputText}
-              onChangeText={text => this.setState({ password: text })}
-            />
-            <TouchableOpacity
-              style={styles.submitButton}
-              onPress={this.onLoginSubmit}
-            >
-              <Text style={styles.submitText}>login</Text>
-            </TouchableOpacity>
-          </View>
-        </LinearGradient>
+        <View style={styles.inputContainer}>
+          <Input
+            placeholder="username"
+            inputContainerStyle={{ borderBottomWidth: 0 }}
+            containerStyle={styles.input}
+            inputStyle={styles.inputText}
+            onChangeText={text => this.setState({ username: text })}
+          />
+          <Input
+            placeholder="password"
+            inputContainerStyle={{ borderBottomWidth: 0 }}
+            containerStyle={styles.input}
+            inputStyle={styles.inputText}
+            onChangeText={text => this.setState({ password: text })}
+          />
+          <TouchableOpacity
+            style={styles.submitButton}
+            onPress={this.onLoginSubmit}
+          >
+            <Text style={styles.submitText}>login</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  gradient: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height
-  },
   inputContainer: {
     width: Dimensions.get("window").width - 100,
     alignSelf: "center",

@@ -23,7 +23,7 @@ export default class ToDoList extends Component {
 
   getTodos = () => {
     axios
-      .get("http://127.0.0.1:5000/todos/")
+      .get("http://127.0.0.1:5000/todos")
       .then(response => {
         this.setState({ todos: response.data });
         console.log(response.data);
